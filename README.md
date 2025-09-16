@@ -18,8 +18,7 @@ Then, when any user replies to some message with the command `/summarize`, the b
 ### Prerequisites
 
 - [Python](https://www.python.org/)
-- [Ollama](https://ollama.com/)
-- [Compatible model from Ollama's library](https://ollama.com/library) (e.g. `llama2:13b`)
+- [OpenRouter API account](https://openrouter.ai/) (or any OpenAI-compatible API)
 
 ### Installation and Usage
 
@@ -34,10 +33,15 @@ Then, when any user replies to some message with the command `/summarize`, the b
 3. Create a `.env` file in the root directory and add the following environment variables:
    ```env
    TELEGRAM_BOT_TOKEN=<your-telegram-bot-token>
+   OPENAI_API_KEY=<your-openai-api-key>
+   OPENAI_BASE_URL=https://openrouter.ai/api/v1
+   OPENAI_MODEL=anthropic/claude-3.5-sonnet
    ```
+   Note: You can use any model available on OpenRouter by changing the `OPENAI_MODEL` variable. If you're using a different OpenAI-compatible service, update the `OPENAI_BASE_URL` accordingly.
 4. Run the bot
    ```sh
-   python app.py
+   cd src
+   uv run python app.py
    ```
 5. Add the bot to a group chat, send some messages and try to summarize them using the `/summarize` command.
 
